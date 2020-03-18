@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "74a749574e0f40df27b0061a71e2b878",
+    "content-hash": "949a9b0ee03d97d3ca56a1db38b0f757",
     "packages": [
         {
             "name": "league/flysystem",
@@ -554,6 +554,56 @@
             "time": "2019-09-30T02:36:48+00:00"
         },
         {
+            "name": "topthink/think-multi-app",
+            "version": "v1.0.12",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/top-think/think-multi-app.git",
+                "reference": "3c1914d2adc08c8753c7f67228885ca47fb9b3bf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/top-think/think-multi-app/zipball/3c1914d2adc08c8753c7f67228885ca47fb9b3bf",
+                "reference": "3c1914d2adc08c8753c7f67228885ca47fb9b3bf",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "php": ">=7.1.0",
+                "topthink/framework": "^6.0.0"
+            },
+            "type": "library",
+            "extra": {
+                "think": {
+                    "services": [
+                        "think\\app\\Service"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "think\\app\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "liu21st",
+                    "email": "liu21st@gmail.com"
+                }
+            ],
+            "description": "thinkphp6 multi app support",
+            "time": "2020-03-01T13:29:35+00:00"
+        },
+        {
             "name": "topthink/think-orm",
             "version": "v2.0.31",
             "source": {
@@ -603,6 +653,149 @@
                 "orm"
             ],
             "time": "2020-01-07T10:05:10+00:00"
+        },
+        {
+            "name": "topthink/think-template",
+            "version": "v2.0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/top-think/think-template.git",
+                "reference": "e98bdbb4a4c94b442f17dfceba81e0134d4fbd19"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/top-think/think-template/zipball/e98bdbb4a4c94b442f17dfceba81e0134d4fbd19",
+                "reference": "e98bdbb4a4c94b442f17dfceba81e0134d4fbd19",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "php": ">=7.1.0",
+                "psr/simple-cache": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "think\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "liu21st",
+                    "email": "liu21st@gmail.com"
+                }
+            ],
+            "description": "the php template engine",
+            "time": "2019-09-20T15:31:04+00:00"
+        },
+        {
+            "name": "topthink/think-view",
+            "version": "v1.0.14",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/top-think/think-view.git",
+                "reference": "edce0ae2c9551ab65f9e94a222604b0dead3576d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/top-think/think-view/zipball/edce0ae2c9551ab65f9e94a222604b0dead3576d",
+                "reference": "edce0ae2c9551ab65f9e94a222604b0dead3576d",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "php": ">=7.1.0",
+                "topthink/think-template": "^2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "think\\view\\driver\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "liu21st",
+                    "email": "liu21st@gmail.com"
+                }
+            ],
+            "description": "thinkphp template driver",
+            "time": "2019-11-06T11:40:13+00:00"
+        },
+        {
+            "name": "twbs/bootstrap",
+            "version": "v4.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twbs/bootstrap.git",
+                "reference": "dca1ab7d877bc4b664b43604657a2b5fbe2b4ecb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/dca1ab7d877bc4b664b43604657a2b5fbe2b4ecb",
+                "reference": "dca1ab7d877bc4b664b43604657a2b5fbe2b4ecb",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "replace": {
+                "twitter/bootstrap": "self.version"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.3.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mark Otto",
+                    "email": "markdotto@gmail.com"
+                },
+                {
+                    "name": "Jacob Thornton",
+                    "email": "jacobthornton@gmail.com"
+                }
+            ],
+            "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
+            "homepage": "https://getbootstrap.com/",
+            "keywords": [
+                "JS",
+                "css",
+                "framework",
+                "front-end",
+                "mobile-first",
+                "responsive",
+                "sass",
+                "web"
+            ],
+            "time": "2019-11-28T12:59:49+00:00"
         }
     ],
     "packages-dev": [
