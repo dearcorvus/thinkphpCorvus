@@ -1,10 +1,10 @@
-;(function () {
+;
+(function() {
     //全局ajax处理
     $.ajaxSetup({
-        complete: function (jqXHR) {
-        },
+        complete: function(jqXHR) {},
         data: {},
-        error: function (jqXHR, textStatus, errorThrown) {
+        error: function(jqXHR, textStatus, errorThrown) {
             //请求失败处理
         }
     });
@@ -18,20 +18,20 @@
 
     //不支持placeholder浏览器下对placeholder进行处理
     if (document.createElement('input').placeholder !== '') {
-        $('[placeholder]').focus(function () {
+        $('[placeholder]').focus(function() {
             var input = $(this);
             if (input.val() == input.attr('placeholder')) {
                 input.val('');
                 input.removeClass('placeholder');
             }
-        }).blur(function () {
+        }).blur(function() {
             var input = $(this);
             if (input.val() == '' || input.val() == input.attr('placeholder')) {
                 input.addClass('placeholder');
                 input.val(input.attr('placeholder'));
             }
-        }).blur().parents('form').submit(function () {
-            $(this).find('[placeholder]').each(function () {
+        }).blur().parents('form').submit(function() {
+            $(this).find('[placeholder]').each(function() {
                 var input = $(this);
                 if (input.val() == input.attr('placeholder')) {
                     input.val('');
@@ -43,12 +43,12 @@
     // 所有加了dialog类名的a链接，自动弹出它的href
     if ($('a.js-dialog').length) {
         Wind.css('artDialog');
-        Wind.use('artDialog', 'iframeTools', function () {
-            $('.js-dialog').on('click', function (e) {
+        Wind.use('artDialog', 'iframeTools', function() {
+            $('.js-dialog').on('click', function(e) {
                 e.preventDefault();
                 var $this = $(this);
                 art.dialog.open($(this).prop('href'), {
-                    close: function () {
+                    close: function() {
                         $this.focus(); // 关闭时让触发弹窗的元素获取焦点
                         return true;
                     },
@@ -63,11 +63,12 @@
     var ajaxForm_list = $('form.js-ajax-form');
     if (ajaxForm_list.length) {
         Wind.css('artDialog');
-        Wind.use('ajaxForm', 'artDialog', 'noty', 'validate', function () {
+        Wind.use('ajaxForm', 'artDialog', 'noty', 'validate', function() {
             var $btn;
-            $('button.js-ajax-submit').on('click', function (e) {
-                var btn = $(this), form = btn.parents('form.js-ajax-form');
-                $btn    = btn;
+            $('button.js-ajax-submit').on('click', function(e) {
+                var btn = $(this),
+                    form = btn.parents('form.js-ajax-form');
+                $btn = btn;
                 if (btn.data("loading")) {
                     return;
                 }
@@ -90,11 +91,11 @@
                         icon: 'warning',
                         content: btn.data('msg'),
                         cancelVal: '关闭',
-                        cancel: function () {
+                        cancel: function() {
                             //btn.data('subcheck', false);
                             //btn.click();
                         },
-                        ok: function () {
+                        ok: function() {
                             btn.data('msg', false);
                             btn.click();
                         }
@@ -105,7 +106,7 @@
 
                 //ie处理placeholder提交问题
                 if ($.browser && $.browser.msie) {
-                    form.find('[placeholder]').each(function () {
+                    form.find('[placeholder]').each(function() {
                         var input = $(this);
                         if (input.val() == input.attr('placeholder')) {
                             input.val('');
@@ -114,7 +115,7 @@
                 }
             });
 
-            ajaxForm_list.each(function () {
+            ajaxForm_list.each(function() {
                 $(this).validate({
                     //是否在获取焦点时验证
                     //onfocusout : false,
@@ -123,28 +124,28 @@
                     //当鼠标点击时验证
                     //onclick : false,
                     //给未通过验证的元素加效果,闪烁等
-                    highlight: function (element, errorClass, validClass) {
+                    highlight: function(element, errorClass, validClass) {
                         if (element.type === "radio") {
                             this.findByName(element.name).addClass(errorClass).removeClass(validClass);
                         } else {
                             var $element = $(element);
                             $element.addClass(errorClass).removeClass(validClass);
-                            $element.parent().addClass("has-error");//bootstrap3表单
-                            $element.parents('.control-group').addClass("error");//bootstrap2表单
+                            $element.parent().addClass("has-error"); //bootstrap3表单
+                            $element.parents('.control-group').addClass("error"); //bootstrap2表单
 
                         }
                     },
-                    unhighlight: function (element, errorClass, validClass) {
+                    unhighlight: function(element, errorClass, validClass) {
                         if (element.type === "radio") {
                             this.findByName(element.name).removeClass(errorClass).addClass(validClass);
                         } else {
                             var $element = $(element);
                             $element.removeClass(errorClass).addClass(validClass);
-                            $element.parent().removeClass("has-error");//bootstrap3表单
-                            $element.parents('.control-group').removeClass("error");//bootstrap2表单
+                            $element.parent().removeClass("has-error"); //bootstrap3表单
+                            $element.parents('.control-group').removeClass("error"); //bootstrap2表单
                         }
                     },
-                    showErrors: function (errorMap, errorArr) {
+                    showErrors: function(errorMap, errorArr) {
                         var i, elements, error;
                         for (i = 0; this.errorList[i]; i++) {
                             error = this.errorList[i];
@@ -170,12 +171,12 @@
                         this.hideErrors();
                         this.addWrapper(this.toShow).show();
                     },
-                    submitHandler: function (form) {
+                    submitHandler: function(form) {
                         var $form = $(form);
                         $form.ajaxSubmit({
                             url: $btn.data('action') ? $btn.data('action') : $form.attr('action'), //按钮上是否自定义提交地址(多按钮情况)
                             dataType: 'json',
-                            beforeSubmit: function (arr, $form, options) {
+                            beforeSubmit: function(arr, $form, options) {
 
                                 $btn.data("loading", true);
                                 var text = $btn.text();
@@ -183,7 +184,7 @@
                                 //按钮文案、状态修改
                                 $btn.text(text + '...').prop('disabled', true).addClass('disabled');
                             },
-                            success: function (data, statusText, xhr, $form) {
+                            success: function(data, statusText, xhr, $form) {
 
                                 function _refresh() {
                                     if (data.url) {
@@ -218,7 +219,7 @@
                                         // },
                                         timeout: 800,
                                         callback: {
-                                            afterClose: function () {
+                                            afterClose: function() {
                                                 if ($btn.data('refresh') == undefined || $btn.data('refresh')) {
                                                     _refresh();
                                                 }
@@ -249,7 +250,7 @@
                                         // },
                                         timeout: 800,
                                         callback: {
-                                            afterClose: function () {
+                                            afterClose: function() {
                                                 _refresh();
                                             }
                                         }
@@ -259,22 +260,22 @@
 
 
                             },
-                            error: function (xhr, e, statusText) {
+                            error: function(xhr, e, statusText) {
                                 art.dialog({
                                     id: 'warning',
                                     icon: 'warning',
                                     content: statusText,
                                     cancelVal: '关闭',
-                                    cancel: function () {
+                                    cancel: function() {
                                         reloadPage(window);
                                     },
-                                    ok: function () {
+                                    ok: function() {
                                         reloadPage(window);
                                     }
                                 });
 
                             },
-                            complete: function () {
+                            complete: function() {
                                 $btn.data("loading", false);
                             }
                         });
@@ -286,44 +287,43 @@
     }
 
     //dialog弹窗内的关闭方法
-    $('#js-dialog-close').on('click', function (e) {
+    $('#js-dialog-close').on('click', function(e) {
         e.preventDefault();
         try {
             art.dialog.close();
         } catch (err) {
             Wind.css('artDialog');
-            Wind.use('artDialog', 'iframeTools', function () {
+            Wind.use('artDialog', 'iframeTools', function() {
                 art.dialog.close();
             });
-        }
-        ;
+        };
     });
 
     //所有的删除操作，删除数据后刷新页面
     if ($('a.js-ajax-delete').length) {
         Wind.css('artDialog');
-        Wind.use('artDialog', 'noty', function () {
-            $('.js-ajax-delete').on('click', function (e) {
+        Wind.use('artDialog', 'noty', function() {
+            $('.js-ajax-delete').on('click', function(e) {
                 e.preventDefault();
-                var $_this  = this,
-                    $this   = $($_this),
-                    href    = $this.data('href'),
+                var $_this = this,
+                    $this = $($_this),
+                    href = $this.data('href'),
                     refresh = $this.data('refresh'),
-                    msg     = $this.data('msg');
-                href        = href ? href : $this.attr('href');
+                    msg = $this.data('msg');
+                href = href ? href : $this.attr('href');
 
                 art.dialog({
                     title: false,
                     icon: 'question',
                     content: msg ? msg : '确定要删除吗？',
                     follow: $_this,
-                    close: function () {
+                    close: function() {
                         $_this.focus(); //关闭时让触发弹窗的元素获取焦点
                         return true;
                     },
                     okVal: "确定",
-                    ok: function () {
-                        $.getJSON(href).done(function (data) {
+                    ok: function() {
+                        $.getJSON(href).done(function(data) {
                             if (data.code == '1') {
                                 noty({
                                     text: data.msg,
@@ -336,7 +336,7 @@
                                     // },
                                     timeout: 800,
                                     callback: {
-                                        afterClose: function () {
+                                        afterClose: function() {
                                             if (refresh == undefined || refresh) {
                                                 if (data.url) {
                                                     //返回带跳转地址
@@ -356,7 +356,7 @@
                                 art.dialog({
                                     content: data.msg,
                                     icon: 'warning',
-                                    ok: function () {
+                                    ok: function() {
                                         this.title(data.msg);
                                         return true;
                                     }
@@ -374,15 +374,15 @@
 
 
     if ($('a.js-ajax-dialog-btn').length) {
-        Wind.use('artDialog', 'noty', function () {
-            $('.js-ajax-dialog-btn').on('click', function (e) {
+        Wind.use('artDialog', 'noty', function() {
+            $('.js-ajax-dialog-btn').on('click', function(e) {
                 e.preventDefault();
-                var $_this  = this,
-                    $this   = $($_this),
-                    href    = $this.data('href'),
+                var $_this = this,
+                    $this = $($_this),
+                    href = $this.data('href'),
                     refresh = $this.data('refresh'),
-                    msg     = $this.data('msg');
-                href        = href ? href : $this.attr('href');
+                    msg = $this.data('msg');
+                href = href ? href : $this.attr('href');
                 if (!msg) {
                     msg = "您确定要进行此操作吗？";
                 }
@@ -391,16 +391,16 @@
                     icon: 'question',
                     content: msg,
                     follow: $_this,
-                    close: function () {
+                    close: function() {
                         $_this.focus(); //关闭时让触发弹窗的元素获取焦点
                         return true;
                     },
-                    ok: function () {
+                    ok: function() {
 
                         $.ajax({
                             url: href,
                             type: 'post',
-                            success: function (data) {
+                            success: function(data) {
                                 if (data.code == 1) {
                                     noty({
                                         text: data.msg,
@@ -413,7 +413,7 @@
                                         // },
                                         timeout: 800,
                                         callback: {
-                                            afterClose: function () {
+                                            afterClose: function() {
                                                 if (refresh == undefined || refresh) {
                                                     if (data.url) {
                                                         //返回带跳转地址
@@ -432,7 +432,7 @@
                                     art.dialog({
                                         content: data.msg,
                                         icon: 'warning',
-                                        ok: function () {
+                                        ok: function() {
                                             this.title(data.msg);
                                             return true;
                                         }
@@ -462,16 +462,16 @@
         var total_check_all = $('input.js-check-all');
 
         //遍历所有全选框
-        $.each(total_check_all, function () {
+        $.each(total_check_all, function() {
             var check_all = $(this),
                 check_items;
 
             //分组各纵横项
             var check_all_direction = check_all.data('direction');
-            check_items             = $('input.js-check[data-' + check_all_direction + 'id="' + check_all.data('checklist') + '"]').not(":disabled");
+            check_items = $('input.js-check[data-' + check_all_direction + 'id="' + check_all.data('checklist') + '"]').not(":disabled");
 
             //点击全选框
-            check_all.change(function (e) {
+            check_all.change(function(e) {
                 var check_wrap = check_all.parents('.js-check-wrap'); //当前操作区域所有复选框的父标签（重用考虑）
 
                 if ($(this).prop('checked')) {
@@ -497,7 +497,7 @@
             });
 
             //点击非全选时判断是否全部勾选
-            check_items.change(function () {
+            check_items.change(function() {
 
                 if ($(this).prop('checked')) {
 
@@ -520,7 +520,7 @@
     //日期选择器
     var dateInput = $("input.js-date");
     if (dateInput.length) {
-        Wind.use('datePicker', function () {
+        Wind.use('datePicker', function() {
             dateInput.datePicker();
         });
     }
@@ -528,7 +528,7 @@
     //日期+时间选择器
     var dateTimeInput = $("input.js-datetime");
     if (dateTimeInput.length) {
-        Wind.use('datePicker', function () {
+        Wind.use('datePicker', function() {
             dateTimeInput.datePicker({
                 time: true
             });
@@ -537,7 +537,7 @@
 
     var yearInput = $("input.js-year");
     if (yearInput.length) {
-        Wind.use('datePicker', function () {
+        Wind.use('datePicker', function() {
             yearInput.datePicker({
                 startView: 'decade',
                 minView: 'decade',
@@ -551,7 +551,7 @@
     var bootstrapDateInput = $("input.js-bootstrap-date")
     if (bootstrapDateInput.length) {
         Wind.css('bootstrapDatetimePicker');
-        Wind.use('bootstrapDatetimePicker', function () {
+        Wind.use('bootstrapDatetimePicker', function() {
             bootstrapDateInput.datetimepicker({
                 language: 'zh-CN',
                 format: 'yyyy-mm-dd',
@@ -566,7 +566,7 @@
     var bootstrapDateTimeInput = $("input.js-bootstrap-datetime");
     if (bootstrapDateTimeInput.length) {
         Wind.css('bootstrapDatetimePicker');
-        Wind.use('bootstrapDatetimePicker', function () {
+        Wind.use('bootstrapDatetimePicker', function() {
             bootstrapDateTimeInput.datetimepicker({
                 language: 'zh-CN',
                 format: 'yyyy-mm-dd hh:ii',
@@ -579,7 +579,7 @@
     //tab
     var tabs_nav = $('ul.js-tabs-nav');
     if (tabs_nav.length) {
-        Wind.use('tabs', function () {
+        Wind.use('tabs', function() {
             tabs_nav.tabs('.js-tabs-content > div');
         });
     }
@@ -587,9 +587,9 @@
     //地址联动
     var $js_address_select = $('.js-address-select');
     if ($js_address_select.length > 0) {
-        $('.js-address-province-select,.js-address-city-select').change(function () {
-            var $this                   = $(this);
-            var id                      = $this.val();
+        $('.js-address-province-select,.js-address-city-select').change(function() {
+            var $this = $(this);
+            var id = $this.val();
             var $child_area_select;
             var $this_js_address_select = $this.parents('.js-address-select');
             if ($this.is('.js-address-province-select')) {
@@ -613,16 +613,16 @@
                 url: $this_js_address_select.data('url'),
                 type: 'POST',
                 dataType: 'JSON',
-                data: {id: id},
-                success: function (data) {
+                data: { id: id },
+                success: function(data) {
                     if (data.code == 1) {
                         if (data.data.areas.length > 0) {
                             var html = [empty_option];
 
-                            $.each(data.data.areas, function (i, area) {
+                            $.each(data.data.areas, function(i, area) {
                                 var area_html = '<option value="[id]">[name]</option>';
-                                area_html     = area_html.replace('[name]', area.name);
-                                area_html     = area_html.replace('[id]', area.id);
+                                area_html = area_html.replace('[name]', area.name);
+                                area_html = area_html.replace('[id]', area.id);
                                 html.push(area_html);
                             });
                             html = html.join('', html);
@@ -635,10 +635,10 @@
                         }
                     }
                 },
-                error: function () {
+                error: function() {
 
                 },
-                complete: function () {
+                complete: function() {
 
                 }
             });
@@ -651,7 +651,7 @@
 
 //重新刷新页面，使用location.reload()有可能导致重新提交
 function reloadPage(win) {
-    var location  = win.location;
+    var location = win.location;
     location.href = location.pathname + location.search;
 }
 
@@ -690,7 +690,7 @@ function getCookie(name) {
 function setCookie(name, value, options) {
     options = options || {};
     if (value === null) {
-        value           = '';
+        value = '';
         options.expires = -1;
     }
     var expires = '';
@@ -704,9 +704,9 @@ function setCookie(name, value, options) {
         }
         expires = '; expires=' + date.toUTCString(); // use expires attribute, max-age is not supported by IE
     }
-    var path        = options.path ? '; path=' + options.path : '';
-    var domain      = options.domain ? '; domain=' + options.domain : '';
-    var secure      = options.secure ? '; secure' : '';
+    var path = options.path ? '; path=' + options.path : '';
+    var domain = options.domain ? '; domain=' + options.domain : '';
+    var secure = options.secure ? '; secure' : '';
     document.cookie = [name, '=', encodeURIComponent(value), expires, path, domain, secure].join('');
 }
 
@@ -725,8 +725,8 @@ function openIframeDialog(url, title, options) {
         width: "95%",
         height: '90%'
     };
-    params     = options ? $.extend(params, options) : params;
-    Wind.use('artDialog', 'iframeTools', function () {
+    params = options ? $.extend(params, options) : params;
+    Wind.use('artDialog', 'iframeTools', function() {
         art.dialog.open(url, params);
     });
 }
@@ -747,22 +747,22 @@ function openMapDialog(url, title, options, callback) {
         opacity: 0,
         width: "95%",
         height: 400,
-        ok: function () {
+        ok: function() {
             if (callback) {
-                var d            = this.iframe.contentWindow;
-                var lng          = $("#lng_input", d.document).val();
-                var lat          = $("#lat_input", d.document).val();
-                var address      = {};
-                address.address  = $("#address_input", d.document).val();
+                var d = this.iframe.contentWindow;
+                var lng = $("#lng_input", d.document).val();
+                var lat = $("#lat_input", d.document).val();
+                var address = {};
+                address.address = $("#address_input", d.document).val();
                 address.province = $("#province_input", d.document).val();
-                address.city     = $("#city_input", d.document).val();
+                address.city = $("#city_input", d.document).val();
                 address.district = $("#district_input", d.document).val();
                 callback.apply(this, [lng, lat, address]);
             }
         }
     };
-    params     = options ? $.extend(params, options) : params;
-    Wind.use('artDialog', 'iframeTools', function () {
+    params = options ? $.extend(params, options) : params;
+    Wind.use('artDialog', 'iframeTools', function() {
         art.dialog.open(url, params);
     });
 }
@@ -778,11 +778,11 @@ function openMapDialog(url, title, options, callback) {
  */
 function openUploadDialog(dialog_title, callback, extra_params, multi, filetype, app) {
     Wind.css('artDialog');
-    multi      = multi ? 1 : 0;
-    filetype   = filetype ? filetype : 'image';
-    app        = app ? app : GV.APP;
+    multi = multi ? 1 : 0;
+    filetype = filetype ? filetype : 'image';
+    app = app ? app : GV.APP;
     var params = '&multi=' + multi + '&filetype=' + filetype + '&app=' + app;
-    Wind.use("artDialog", "iframeTools", function () {
+    Wind.use("artDialog", "iframeTools", function() {
         art.dialog.open(GV.ROOT + 'user/Asset/webuploader?' + params, {
             title: dialog_title,
             id: new Date().getTime(),
@@ -792,10 +792,10 @@ function openUploadDialog(dialog_title, callback, extra_params, multi, filetype,
             fixed: true,
             background: "#CCCCCC",
             opacity: 0,
-            ok: function () {
+            ok: function() {
                 if (typeof callback == 'function') {
                     var iframewindow = this.iframe.contentWindow;
-                    var files        = iframewindow.get_selected_files();
+                    var files = iframewindow.get_selected_files();
                     console.log(files);
                     if (files && files.length > 0) {
                         callback.apply(this, [this, files, extra_params]);
@@ -819,8 +819,8 @@ function openUploadDialog(dialog_title, callback, extra_params, multi, filetype,
  * @param app  应用名,CMF的应用名
  */
 function uploadOne(dialog_title, input_selector, filetype, extra_params, app) {
-    filetype   = filetype ? filetype : 'file';
-    openUploadDialog(dialog_title, function (dialog, files) {
+    filetype = filetype ? filetype : 'file';
+    openUploadDialog(dialog_title, function(dialog, files) {
         $(input_selector).val(files[0].filepath);
         $(input_selector + '-preview').attr('href', files[0].preview_url);
         $(input_selector + '-name').val(files[0].name);
@@ -835,7 +835,7 @@ function uploadOne(dialog_title, input_selector, filetype, extra_params, app) {
  * @param app  应用名,CMF的应用名
  */
 function uploadOneImage(dialog_title, input_selector, extra_params, app) {
-    openUploadDialog(dialog_title, function (dialog, files) {
+    openUploadDialog(dialog_title, function(dialog, files) {
         $(input_selector).val(files[0].filepath);
         $(input_selector + '-preview').attr('src', files[0].preview_url);
         $(input_selector + '-name').val(files[0].name);
@@ -851,16 +851,16 @@ function uploadOneImage(dialog_title, input_selector, extra_params, app) {
  * @param app  应用名,CMF 的应用名
  */
 function uploadMultiImage(dialog_title, container_selector, item_tpl_wrapper_id, extra_params, app) {
-    openUploadDialog(dialog_title, function (dialog, files) {
-        var tpl  = $('#' + item_tpl_wrapper_id).html();
+    openUploadDialog(dialog_title, function(dialog, files) {
+        var tpl = $('#' + item_tpl_wrapper_id).html();
         var html = '';
-        $.each(files, function (i, item) {
+        $.each(files, function(i, item) {
             var itemtpl = tpl;
-            itemtpl     = itemtpl.replace(/\{id\}/g, item.id);
-            itemtpl     = itemtpl.replace(/\{url\}/g, item.url);
-            itemtpl     = itemtpl.replace(/\{preview_url\}/g, item.preview_url);
-            itemtpl     = itemtpl.replace(/\{filepath\}/g, item.filepath);
-            itemtpl     = itemtpl.replace(/\{name\}/g, item.name);
+            itemtpl = itemtpl.replace(/\{id\}/g, item.id);
+            itemtpl = itemtpl.replace(/\{url\}/g, item.url);
+            itemtpl = itemtpl.replace(/\{preview_url\}/g, item.preview_url);
+            itemtpl = itemtpl.replace(/\{filepath\}/g, item.filepath);
+            itemtpl = itemtpl.replace(/\{name\}/g, item.name);
             html += itemtpl;
         });
         $(container_selector).append(html);
@@ -879,16 +879,16 @@ function uploadMultiImage(dialog_title, container_selector, item_tpl_wrapper_id,
  */
 function uploadMultiFile(dialog_title, container_selector, item_tpl_wrapper_id, filetype, extra_params, app) {
     filetype = filetype ? filetype : 'file';
-    openUploadDialog(dialog_title, function (dialog, files) {
-        var tpl  = $('#' + item_tpl_wrapper_id).html();
+    openUploadDialog(dialog_title, function(dialog, files) {
+        var tpl = $('#' + item_tpl_wrapper_id).html();
         var html = '';
-        $.each(files, function (i, item) {
+        $.each(files, function(i, item) {
             var itemtpl = tpl;
-            itemtpl     = itemtpl.replace(/\{id\}/g, item.id);
-            itemtpl     = itemtpl.replace(/\{url\}/g, item.url);
-            itemtpl     = itemtpl.replace(/\{preview_url\}/g, item.preview_url);
-            itemtpl     = itemtpl.replace(/\{filepath\}/g, item.filepath);
-            itemtpl     = itemtpl.replace(/\{name\}/g, item.name);
+            itemtpl = itemtpl.replace(/\{id\}/g, item.id);
+            itemtpl = itemtpl.replace(/\{url\}/g, item.url);
+            itemtpl = itemtpl.replace(/\{preview_url\}/g, item.preview_url);
+            itemtpl = itemtpl.replace(/\{filepath\}/g, item.filepath);
+            itemtpl = itemtpl.replace(/\{name\}/g, item.name);
             html += itemtpl;
         });
         $(container_selector).append(html);
@@ -903,13 +903,13 @@ function uploadMultiFile(dialog_title, container_selector, item_tpl_wrapper_id, 
 function imagePreviewDialog(img) {
     Wind.css('layer');
 
-    Wind.use("layer", function () {
+    Wind.use("layer", function() {
         layer.photos({
             photos: {
                 "title": "", //相册标题
                 "id": 'image_preview', //相册id
                 "start": 0, //初始显示的图片序号，默认0
-                "data": [   //相册包含的图片，数组格式
+                "data": [ //相册包含的图片，数组格式
                     {
                         "alt": "",
                         "pid": 666, //图片id
@@ -918,7 +918,8 @@ function imagePreviewDialog(img) {
                     }
                 ]
             } //格式见API文档手册页
-            , anim: 5, //0-6的选择，指定弹出图片动画类型，默认随机
+            ,
+            anim: 5, //0-6的选择，指定弹出图片动画类型，默认随机
             shadeClose: true,
             // skin: 'layui-layer-nobg',
             shade: [0.5, '#000000'],
@@ -929,7 +930,7 @@ function imagePreviewDialog(img) {
 
 function artdialogAlert(msg) {
     Wind.css('artDialog');
-    Wind.use("artDialog", function () {
+    Wind.use("artDialog", function() {
         art.dialog({
             id: new Date().getTime(),
             icon: "error",
@@ -938,7 +939,7 @@ function artdialogAlert(msg) {
             background: "#CCCCCC",
             opacity: 0,
             content: msg,
-            ok: function () {
+            ok: function() {
                 return true;
             }
         });
@@ -959,16 +960,16 @@ function openIframeLayer(url, title, options) {
         area: ['95%', '90%'],
         move: false,
         content: url,
-        yes: function (index, layero) {
+        yes: function(index, layero) {
             //do something
             layer.close(index); //如果设定了yes回调，需进行手工关闭
         }
     };
-    params     = options ? $.extend(params, options) : params;
+    params = options ? $.extend(params, options) : params;
 
     Wind.css('layer');
 
-    Wind.use("layer", function () {
+    Wind.use("layer", function() {
         layer.open(params);
     });
 

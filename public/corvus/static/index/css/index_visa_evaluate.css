@@ -1,0 +1,60 @@
+.visa_nav {
+    width: 100%;
+    padding-bottom: .2rem;
+}
+
+.visa_nav>ul {
+    width: 100%;
+    overflow: hidden;
+}
+
+.visa_nav>ul>li {
+    margin-top: .24rem;
+    float: left;
+    width: 1.9rem;
+    height: .65rem;
+    border: 1px solid #e0e0e0;
+    border-radius: .2rem;
+    margin-left: .2rem;
+    text-align: center;
+    font-size: .24rem;
+    color: #000;
+    line-height: .65rem;
+    background-color: #f6cb48;
+}
+
+.vias_evaluate_list {
+    width: 100%;
+    background-color: #f3f3f3;
+}
+
+.vias_evaluate_list li {
+    border-top: 1px solid #d5d5d5;
+    border-bottom: 1px solid #d5d5d5;
+    background-color: #ffffff;
+    margin-bottom: .2rem;
+}
+
+.vias_evaluate_user {
+    padding: .2rem 0;
+    font-size: .24rem;
+    color: #000000;
+}
+
+.vias_evaluate_user img {
+    width: .6rem;
+    height: .6rem;
+    border-radius: 50%;
+}
+
+.vias_evaluate_list li P:nth-child(2) {
+    font-size: .22rem;
+    color: #919191;
+}
+
+.vias_evaluate_list li P:nth-child(3) {
+    font-size: .28rem;
+    color: #000000;
+    margin-top: .2rem;
+    margin-bottom: .2rem;
+}

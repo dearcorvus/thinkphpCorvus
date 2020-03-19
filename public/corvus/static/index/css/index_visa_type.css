@@ -1,0 +1,95 @@
+.visa_nav {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.visa_nav>ul {
+    width: 10rem;
+    margin-top: .24rem;
+}
+
+.visa_nav>ul>li {
+    float: left;
+    width: 1.9rem;
+    height: .65rem;
+    border: 1px solid #e0e0e0;
+    border-radius: .2rem;
+    margin-left: .2rem;
+    text-align: center;
+    font-size: .24rem;
+    color: #000;
+    line-height: .65rem;
+}
+
+.visa_nav_check {
+    border-color: #f6cc46;
+    background-color: #f6cc46;
+}
+
+.vsia_title {
+    font-size: .28rem;
+    color: #999999;
+    line-height: .9rem;
+}
+
+.visa_content {
+    background-color: #fafafa;
+}
+
+.visa_content_item {
+    padding: .24rem 0;
+    border-bottom: 1px solid #dddddd;
+    display: flex;
+    justify-content: space-between;
+}
+
+.visa_content_item div:nth-child(1) {
+    width: .8rem;
+    height: .8rem;
+    border: 1px solid #dddddd;
+}
+
+.visa_content_item div img {
+    display: block;
+    width: 50%;
+    margin: .1rem auto;
+}
+
+.visa_content_item div:nth-child(2) {
+    width: 85%;
+    font-size: .26rem;
+    color: #5d5d5d;
+}
+
+.visa_content_item div p:nth-child(1) {
+    display: flex;
+    justify-content: left;
+    color: #000000;
+}
+
+.visa_content_item div span {
+    display: block;
+    width: .5rem;
+    height: .28rem;
+    font-size: .18rem;
+    color: #a2693e;
+    text-align: center;
+    line-height: .28rem;
+    border-radius: .1rem;
+    border: 1px solid #a2693e;
+}
+
+.visa_share {
+    width: 90%;
+    height: .9rem;
+    font-size: .3rem;
+    text-align: center;
+    line-height: .9rem;
+    border-radius: .1rem;
+    background-image: linear-gradient(to right, #f29538, #e94b5a);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: .1rem auto;
+}

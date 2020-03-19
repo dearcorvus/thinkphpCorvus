@@ -225,32 +225,58 @@ footer {
     left: 0;
     bottom: 0;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 1.2rem;
+    height: 1rem;
     z-index: 11;
     background: #fff;
 }
 
-.footnav li {
-    float: left;
-    padding: 0 0.6rem;
-    font-size: 14px;
-    color: #333;
+footer div:nth-child(1) {
+    width: 38%;
+    font-size: .18rem;
+    color: #535353;
+    text-align: center;
 }
 
-.footnav li:nth-child(1) {
-    padding: 0;
+footer div img {
+    width: .4rem;
+    margin-top: .1rem;
 }
 
-.footnav li:nth-child(4) {
-    padding-right: 0.3rem;
+footer div {
+    display: flex;
+    justify-content: space-around;
 }
 
-.footnav li:nth-child(1) img {
-    width: 0.34rem;
-    height: 0.34rem;
+footer div:nth-child(2) {
+    width: 59%;
+    height: .8rem;
+    font-size: .18rem;
+    color: #fff;
+    line-height: .8rem;
+    margin-right: .18rem;
+    background-color: #e8544a;
+    /* 浏览器不支持时显示 */
+    border-radius: .4rem;
+    text-align: center;
+    overflow: hidden;
+}
+
+footer div:nth-child(2) span:nth-child(1) {
+    width: 50%;
+    background-image: linear-gradient(to right, #f3d245, #ed7c2e);
+}
+
+footer div:nth-child(2) span:nth-child(2) {
+    width: 50%;
+    background-image: linear-gradient(to right, #f07331, #e75063);
+}
+
+.footer {
+    width: 100%;
+    height: 1rem;
 }
 
 
@@ -285,4 +311,28 @@ footer {
 
 .navheader {
     box-shadow: none;
+}
+
+
+/* 头部 */
+
+.head_box {
+    width: 100%;
+    height: .9rem;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f4f4f4;
+}
+
+.head_box div {
+    width: .4rem;
+    margin-left: .3rem;
+    margin-right: .3rem;
+}
+
+.fz_padding {
+    padding: 0 .2rem;
+    box-sizing: border-box;
 }

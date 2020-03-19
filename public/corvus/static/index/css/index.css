@@ -100,6 +100,16 @@ body {
     color: #000000;
 }
 
+.visa_discount_lable span {
+    display: inline-block;
+    padding: 0 .2rem;
+    background-color: #fff7e2;
+    border-radius: .1rem;
+    font-size: .26rem;
+    color: #5e5751;
+    margin-top: .16rem;
+}
+
 
 /* 店铺 */
 
@@ -160,7 +170,7 @@ body {
     float: left;
     margin-right: 0.2rem;
     /* width: 3.5rem;
-    height: 1.6rem; */
+height: 1.6rem; */
     background-color: #fcefe9;
     display: flex;
     justify-content: space-between;
@@ -241,4 +251,209 @@ body {
 
 .visa_recommendation_price span {
     font-size: .18rem;
+}
+
+
+/* 商品详情 */
+
+.visa_info_title {
+    width: 100%;
+    height: .9rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #fff;
+    margin-top: .2rem;
+}
+
+.visa_info_title div {
+    font-size: .26rem;
+    color: black;
+    line-height: .9rem;
+    padding: 0 .05rem;
+    border-bottom: 2px solid #fff;
+    box-sizing: border-box;
+}
+
+.visa_info_title .visa_info_check {
+    border-bottom-color: #f8cb4c;
+}
+
+.visa_info_ul {
+    margin-top: .2rem;
+}
+
+.visa_info_ul li {
+    width: 100%;
+    border-top: 1px solid #efefef;
+    padding: .35rem 0;
+    font-size: .24rem;
+    color: #9a9a9a;
+    display: flex;
+    justify-content: space-between;
+}
+
+.visa_info_ul li div {
+    width: 5.3rem;
+    color: #000000;
+}
+
+.visa_notice {
+    margin-top: .2rem;
+    font-size: .26rem;
+    color: #606060;
+}
+
+.visa_type {
+    overflow-x: auto;
+}
+
+.visa_type_box {
+    width: 10rem;
+}
+
+.visa_type span {
+    display: inline-block;
+    padding: .2rem .3rem;
+    font-size: .24rem;
+    color: #000000;
+    border: 1px solid #cacaca;
+    border-radius: .6rem;
+}
+
+.visa_type .visa_type_check {
+    border-color: #f8cb4c;
+    background-color: #f8cb4c;
+}
+
+.visa_goods {
+    width: 100%;
+    padding: .2rem;
+    box-sizing: border-box;
+    background-color: #fafafa;
+    display: flex;
+    justify-content: space-between;
+}
+
+.visa_goods div:nth-child(1) {
+    width: 80%;
+    font-size: .28rem;
+    color: #555555;
+}
+
+.visa_goods div:nth-child(2) {
+    color: #895b4b;
+}
+
+.visa_goods div:nth-child(2) span {
+    font-size: .2rem;
+}
+
+.visa_goods div:nth-child(2) .visa_goods_tbn {
+    width: .9rem;
+    height: .6rem;
+    border-radius: .6rem;
+    background-color: #ff5f3b;
+    font-size: .2rem;
+    color: #fff5c8;
+    text-align: center;
+    line-height: .6rem;
+}
+
+.visa_materials {
+    display: flex;
+    justify-content: space-between;
+}
+
+.visa_materials div {
+    font-size: .24rem;
+    color: #999999;
+}
+
+.visa_materials div span:nth-child(2) {
+    padding: .05rem .1rem;
+    color: #aba35a;
+    border: 1px solid #aba35a;
+    border-radius: .5rem;
+    margin-left: .24rem;
+    padding-right: .4rem;
+    background-image: url('../img/down.png');
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: 0.4rem 0.4rem;
+}
+
+.visa_materials_box {
+    padding-top: .2rem;
+    background-color: #fafafa;
+    text-align: center;
+}
+
+.visa_materials_box ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 .2rem;
+}
+
+.visa_materials_box ul::after {
+    width: 30%;
+    height: 2.4rem;
+    border-radius: .2rem;
+    font-size: .26rem;
+    color: #000000;
+    text-align: center;
+    margin-bottom: .16rem;
+    content: "";
+}
+
+.visa_materials_box ul>li {
+    width: 30%;
+    height: 2.4rem;
+    background-color: #fff;
+    border-radius: .2rem;
+    font-size: .26rem;
+    color: #000000;
+    text-align: center;
+    margin-bottom: .16rem;
+    position: relative;
+}
+
+.visa_materials_img {
+    width: 1rem;
+    height: 1rem;
+    margin: .3rem auto .2rem;
+}
+
+.visa_materials_img img {
+    width: 100%;
+    height: 100%;
+}
+
+.visa_materials_box ul>li>span:nth-child(3) {
+    padding: .03rem .05rem;
+    font-size: .18rem;
+    color: #828282;
+    color: #828282;
+    border-radius: .08rem;
+    background-color: #fafafa;
+    position: absolute;
+    right: .05rem;
+    top: .05rem;
+}
+
+.visa_materials_info {
+    font-size: .24rem;
+    color: #f1cf51;
+    line-height: .7rem;
+}
+
+.visa_address {
+    padding: .2rem;
+}
+
+.visa_address p {
+    text-align: left;
+    font-size: .26rem;
+    color: #505050;
 }

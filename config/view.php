@@ -18,7 +18,8 @@ return [
     'tpl_replace_string' => [
         '__STATIC__'     => '/corvus/static',
         '__INDEX__'      => '/corvus/view/index',
-        '__ADMIN__'      => '/corvus/view/admin'
+        '__ADMIN__'      => '/corvus/view/admin',
+        '__WEB_ROOT__'  => '/corvus/static',
     ],
     // 模板引擎普通标签开始标记
     'tpl_begin'     => '{',
