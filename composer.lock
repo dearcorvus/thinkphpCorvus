@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f61f85eaf2f0c732fd7b598be2cb3d13",
+    "content-hash": "0539cf09b5815bd20faf51946b7d7a1a",
     "packages": [
         {
             "name": "league/flysystem",
@@ -439,6 +439,56 @@
                 "simple-cache"
             ],
             "time": "2017-10-23T01:57:42+00:00"
+        },
+        {
+            "name": "qeq66/think-jump",
+            "version": "v1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/qeq66/think-jump.git",
+                "reference": "7e5eae25a41a2ef1511bc4d35959e434d4902546"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/qeq66/think-jump/zipball/7e5eae25a41a2ef1511bc4d35959e434d4902546",
+                "reference": "7e5eae25a41a2ef1511bc4d35959e434d4902546",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "php": ">=7.1.0",
+                "topthink/framework": "^6.0",
+                "topthink/think-view": "^1.0"
+            },
+            "type": "think-extend",
+            "extra": {
+                "think": {
+                    "config": {
+                        "jump": "config/jump.php"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "qeq66\\think\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "qeq66",
+                    "email": "qeq666@gmail.com"
+                }
+            ],
+            "time": "2019-10-11T07:37:24+00:00"
         },
         {
             "name": "topthink/framework",

@@ -6,12 +6,14 @@ namespace app;
 use think\App;
 use think\exception\ValidateException;
 use think\Validate;
+use qeq66\think\Jump;
 
 /**
  * 控制器基础类
  */
 abstract class BaseController
 {
+    use Jump;
     /**
      * Request实例
      * @var \think\Request
@@ -52,7 +54,15 @@ abstract class BaseController
 
     // 初始化
     protected function initialize()
-    {}
+    {
+        $adminSettings = cmf_get_option('admin_settings');
+        if (empty($adminSettings['admin_password']) || $this->request->path() == $adminSettings['admin_password']) {
+            $adminId = cmf_get_current_admin_id();
+            if (empty($adminId)) {
+                session("__LOGIN_BY_CMF_ADMIN_PW__", 1);//设置后台登录加密码
+            }
+        }
+    }
 
     /**
      * 验证数据

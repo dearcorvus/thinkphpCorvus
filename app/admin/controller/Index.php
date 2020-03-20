@@ -2,7 +2,9 @@
 namespace app\admin\controller;
 
 use app\BaseController;
-
+use think\facade\View;
+use think\facade\Db;
+use app\admin\model\AdminMenu;
 class Index extends BaseController
 {
     public function _initialize()
@@ -17,10 +19,40 @@ class Index extends BaseController
 
         parent::_initialize();
     }
-
+    
+    /**
+     * 后台首页
+     */
     public function index()
     {
-        return view();
+
+        $adminMenuModel = new AdminMenu();
+        $menus          = cache('admin_menus_' . cmf_get_current_admin_id(), '', null, 'admin_menus');
+
+        if (empty($menus)) {
+            $menus = $adminMenuModel->menuTree();
+            cache('admin_menus_' . cmf_get_current_admin_id(), $menus, null, 'admin_menus');
+        }
+
+        View::assign("menus", $menus);
+
+        $result = Db::name('AdminMenu')->order(["app" => "ASC", "controller" => "ASC", "action" => "ASC"])->select();
+        $menusTmp = array();
+        foreach ($result as $item){
+            //去掉/ _ 全部小写。作为索引。
+            $indexTmp = $item['app'].$item['controller'].$item['action'];
+            $indexTmp = preg_replace("/[\\/|_]/","",$indexTmp);
+            $indexTmp = strtolower($indexTmp);
+            $menusTmp[$indexTmp] = $item;
+        }
+
+        View::assign("menus_js_var",json_encode($menusTmp));
+        
+
+        var_dump(123);
+        die();
+
+        return View::fetch();
     }
 
     public function hello($name = 'ThinkPHP6')
