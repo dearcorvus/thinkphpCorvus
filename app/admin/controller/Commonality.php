@@ -28,11 +28,11 @@ class Commonality extends BaseController
                 return redirect(cmf_get_root() . "/");
             } else {
                 session("__SP_ADMIN_LOGIN_PAGE_SHOWED_SUCCESS__", true);
-                $result = hook_one('admin_login');
+ 
                 if (!empty($result)) {
                     return $result;
                 }
-                return view(":login");
+                return view();
             }
         }
     }

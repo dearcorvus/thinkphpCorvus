@@ -11,7 +11,7 @@ body {
 
 .visa_banner {
     width: 100%;
-    height: 7.4rem;
+    /* height: 7.4rem; */
     background-image: url('../img/visa.jpg');
     background-size: 100% 100%;
 }
@@ -22,6 +22,10 @@ body {
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 999;
 }
 
 .visa_top div {
@@ -133,7 +137,7 @@ body {
     justify-content: space-between;
     font-size: .3rem;
     color: #5497e6;
-    line-height: .8rem;
+    /* line-height: .8rem; */
     padding-top: .2rem;
 }
 
@@ -451,7 +455,7 @@ body {
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
     overflow: hidden;
-    min-height: 70%;
+    min-height: 80%;
     background-color: #fff;
 }
 
@@ -499,7 +503,76 @@ body {
 
 .goods_date {
     width: 100%;
+    height: 6rem;
     background-color: #f2f2f2;
+    overflow-y: scroll;
+}
+
+.goods_date_m {
+    background-color: #fff;
+    font-size: .28rem;
+    margin-top: .2rem;
+    padding: .2rem;
+    box-sizing: border-box;
+    border-bottom: 1px solid #f3f3f3;
+}
+
+.goods_date_month {
+    width: 100%;
+    background-color: #fff;
+    font-size: .28rem;
+    color: #000000;
+    margin-top: .2rem;
+    padding: .2rem;
+    box-sizing: border-box;
+    border-bottom: 1px solid #f3f3f3;
+}
+
+.goods_date_month {
+    width: 100%;
+    background-color: #fff;
+    font-size: .28rem;
+    color: #000000;
+    margin-top: .2rem;
+    padding: .2rem;
+    box-sizing: border-box;
+    border-bottom: 1px solid #f3f3f3;
+}
+
+.goods_date_month span {
+    display: inline-block;
+    width: 20%;
+    text-align: center;
+}
+
+.goods_date_day div {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.goods_date_day {
+    background-color: #fff;
+    font-size: .22rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: .3rem 0;
+}
+
+.goods_date_day li {
+    width: 14%;
+    margin-top: .8rem;
+    font-size: .24rem;
+    color: #acacac;
+    text-align: center;
+}
+
+.goods_date_day::after {
+    width: 14%;
+    margin-top: .9rem;
+    content: "";
 }
 
 .mask_btn {
@@ -516,4 +589,151 @@ body {
     right: 0;
     bottom: .2rem;
     margin: 0 auto;
+}
+
+.goods_date {
+    width: 100%;
+    /* padding: 0 .2rem; */
+}
+
+.address_titles {
+    border-bottom: none;
+}
+
+.goods_address_box {
+    padding: .3rem .2rem;
+    box-sizing: border-box;
+}
+
+.goods_address_box .goods_info {
+    height: 1.5rem;
+}
+
+.address_titles div:nth-child(1) {
+    width: 2rem;
+    height: 1rem;
+    text-align: center;
+    font-size: .3rem;
+    color: black;
+    margin: 0 auto;
+}
+
+.search_address {
+    width: 94%;
+    height: .6rem;
+    background-color: #f2f2f2;
+    border-radius: .3rem;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0 .2rem;
+    box-sizing: border-box;
+}
+
+.search_address div:nth-child(1) {
+    width: .3rem;
+    height: .3rem;
+}
+
+.search_address div:nth-child(2) input {
+    border: none;
+    background-color: #f2f2f2;
+    font-size: .26rem;
+    text-indent: .2rem;
+}
+
+.address_hot {
+    width: 100%;
+    font-size: .28rem;
+    padding: .2rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+
+.address_hot li {
+    width: 30%;
+    height: .5rem;
+    border: 1px solid #f2f2f2;
+    margin-right: 5%;
+    margin-bottom: .2rem;
+    box-sizing: border-box;
+    text-align: center;
+    align-items: center;
+    border-radius: .1rem;
+}
+
+.address_hot li:nth-child(3n) {
+    margin: 0;
+}
+
+.address_hot .check_address_hot {
+    background-color: #f8cb4c;
+    border-color: #f8cb4c;
+}
+
+.goods_pays {
+    width: 100%;
+    margin-top: .2rem;
+    background-color: #fff;
+    padding: 0 .2rem;
+    box-sizing: border-box;
+}
+
+.goods_pays_title {
+    font-size: .3rem;
+    font-weight: 600;
+    padding: .2rem 0;
+}
+
+.goods_pays_num {
+    font-size: .26rem;
+    color: #000000;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-numbox {
+    overflow: hidden;
+}
+
+.btn-numbox li {
+    float: left;
+}
+
+.btn-numbox li .number,
+.kucun {
+    display: inline-block;
+    font-size: .3rem;
+    color: #808080;
+    vertical-align: sub;
+}
+
+.btn-numbox .count {
+    overflow: hidden;
+}
+
+.btn-numbox .count .num-jian,
+.input-num,
+.num-jia {
+    display: inline-block;
+    width: .5rem;
+    height: .5rem;
+    line-height: .5rem;
+    text-align: center;
+    font-size: .3rem;
+    color: #999;
+    cursor: pointer;
+    border: 1px solid #e6e6e6;
+}
+
+.goods_num {
+    display: flex;
+    justify-content: space-between;
+    font-size: .24rem;
+    color: #7d7d7d;
+    padding: .2rem 0;
+    box-sizing: border-box;
 }

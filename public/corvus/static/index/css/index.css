@@ -11,7 +11,7 @@ body {
 
 .visa_banner {
     width: 100%;
-    height: 7.4rem;
+    /* height: 7.4rem; */
     background-image: url('../img/visa.jpg');
     background-size: 100% 100%;
 }
@@ -22,6 +22,10 @@ body {
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 999;
 }
 
 .visa_top div {

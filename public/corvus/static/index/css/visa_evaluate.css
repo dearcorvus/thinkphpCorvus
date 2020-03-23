@@ -1,0 +1,82 @@
+html,
+body {
+    width: 100%;
+    background-color: #f0f0f0;
+}
+
+.visa_evaluate {
+    width: 100%;
+    height: 1rem;
+    font-size: .3rem;
+    font-weight: 600;
+    line-height: 1rem;
+}
+
+.visa_list_item {
+    width: 100%;
+    padding: .2rem;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    margin-bottom: .2rem;
+}
+
+.visa_list_one {
+    font-size: .3rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.visa_list_one .lible {
+    display: inline-block;
+    width: .34rem;
+    height: .34rem;
+    font-size: .2rem;
+    color: #ffffff;
+    text-align: center;
+    line-height: .34rem;
+    background-color: #ca5c3b;
+    border-radius: .02rem;
+    margin-right: .2rem;
+}
+
+.lible_tow {
+    display: inline-block;
+    width: .34rem;
+    height: .34rem;
+    font-size: .2rem;
+    color: #ffffff;
+    text-align: center;
+    line-height: .34rem;
+    background-color: #f7b640;
+    border-radius: .02rem;
+    margin-right: .2rem;
+}
+
+.visa_list_one div:nth-child(2) {
+    width: .5rem;
+    height: .5rem;
+}
+
+.visa_list_tow {
+    margin-top: .2rem;
+    display: flex;
+    justify-content: left;
+}
+
+.visa_list_three {
+    font-size: .22rem;
+    display: flex;
+    justify-content: space-between;
+    margin-top: .2rem;
+    padding-left: .56rem;
+}
+
+.visa_list_three span {
+    color: #64a8d7;
+}
+
+.visa_list_three div {
+    color: #6b6b75;
+}

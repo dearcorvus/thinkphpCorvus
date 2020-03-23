@@ -1,0 +1,32 @@
+html,
+body {
+    width: 100%;
+    background-color: #f0f0f0;
+}
+
+.evaluate_add {
+    width: 100%;
+    height: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 .2rem;
+    box-sizing: border-box;
+    font-size: .28rem;
+    color: #000000;
+}
+
+.evaluate_add img {
+    width: .3rem;
+    height: .3rem;
+    margin-right: .3rem;
+}
+
+.evaluate_add div {
+    display: flex;
+    align-items: center;
+}
+
+.evaluate_add div:nth-child(2) {
+    color: #f4500d;
+}

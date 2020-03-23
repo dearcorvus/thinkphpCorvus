@@ -9,7 +9,7 @@ use think\facade\Request;
 
 //设置插件入口路由
 
-Route::get('captcha/new','\\think\\captcha\\CaptchaController@index');
+Route::get('captcha/new', "\\app\\common\\controller\\CaptchaController@index");
 
 /**
  * 获取当前登录的管理员ID
@@ -113,13 +113,15 @@ function cmf_get_option($key)
 }
 
 /**
- * 添加钩子,只执行一个
- * @param string $hook 钩子名称
- * @param mixed $params 传入参数
- * @param mixed $extra 额外参数
- * @return mixed
+ * 验证码检查，验证完后销毁验证码
+ * @param string $value
+ * @param string $id
+ * @param bool $reset
+ * @return bool
  */
-function hook_one($hook, &$params = null, $extra = null)
+function cmf_captcha_check($value, $id = "", $reset = true)
 {
-    return \think\Hook::listen($hook, $params, $extra, true);
+    $captcha        = new \think\captcha\Captcha();
+    $captcha->reset = $reset;
+    return $captcha->check($value, $id);
 }

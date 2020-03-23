@@ -1,13 +1,13 @@
 <?php
 namespace app\admin\controller;
 
-use app\BaseController;
+use app\admin\controller\AdminBaseController;
 use think\facade\View;
 use think\facade\Db;
 use app\admin\model\AdminMenu;
-class Index extends BaseController
+class Index extends AdminBaseController
 {
-    public function _initialize()
+    public function initialize()
     {
         $adminSettings = cmf_get_option('admin_settings');
         if (empty($adminSettings['admin_password']) || $this->request->path() == $adminSettings['admin_password']) {
@@ -17,7 +17,7 @@ class Index extends BaseController
             }
         }
 
-        parent::_initialize();
+        parent::initialize();
     }
     
     /**
@@ -49,7 +49,7 @@ class Index extends BaseController
         View::assign("menus_js_var",json_encode($menusTmp));
         
 
-        var_dump(123);
+        var_dump(5555);
         die();
 
         return View::fetch();

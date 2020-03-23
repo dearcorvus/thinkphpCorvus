@@ -9,19 +9,65 @@
     <script type="text/javascript" src="__STATIC__/index/js/rem.js"></script>
     <script type="text/javascript" src="__STATIC__/public/js/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="__STATIC__/index/js/index.js"></script>
+
+    <!-- 引入swiper -->
+
+    <link rel="stylesheet" href="__STATIC__/public/swiper/css/swiper.css">
+    <script type="text/javascript" src="__STATIC__/public/swiper/js/swiper.js"></script>
+
     <!-- 公共文件 -->
     <link rel="stylesheet" href="__STATIC__/index/css/style.css">
     <link rel="stylesheet" href="__STATIC__/index/css/index1.css">
 </head>
+<style>
+    .swiper-container {
+        width: 100%;
+        height: 100%;
+    }
+</style>
 
 <body>
     <!-- banner -->
     <div class="visa_banner">
-        <div class="visa_top">
-            <div><img src="__STATIC__/index/img/back.png" alt=""></div>
-            <div><img src="__STATIC__/index/img/cart.png" alt=""></div>
+        <div class="swiper-container">
+            <div class="visa_top">
+                <div><img src="__STATIC__/index/img/back.png" alt=""></div>
+                <div>
+                    <img src="__STATIC__/index/img/cart.png" alt="">
+                </div>
+            </div>
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="__STATIC__/index/img/visa.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="__STATIC__/index/img/visa.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="__STATIC__/index/img/visa.jpg" alt=""></div>
+            </div>
+            <!-- 如果需要分页器 -->
+            <div class="swiper-pagination"></div>
         </div>
     </div>
+
+    <script>
+        var mySwiper = new Swiper('.swiper-container', {
+            direction: 'horizontal', // 垂直切换选项
+            loop: true, // 循环模式选项
+
+            // 如果需要分页器
+            pagination: {
+                el: '.swiper-pagination',
+            },
+
+            // 如果需要前进后退按钮
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+
+            // 如果需要滚动条
+            scrollbar: {
+                el: '.swiper-scrollbar',
+            },
+        })
+    </script>
 
     <!-- title -->
     <div class="visa_box">
@@ -59,7 +105,7 @@
 
     <!-- 出发地 -->
     <div class="visa_address fz_padding">
-        <div class="visa_address_title">
+        <div class="visa_address_title address">
             <div>天津出发▼</div>
             <a href="#">更多时间</a>
         </div>
@@ -91,7 +137,7 @@
     <div class="visa_comment_box fz_padding">
         <div class="visa_address_title">
             <div>宝贝评价(3)</div>
-            <a href="#">查看更多</a>
+            <a href="{:url('index/visa_evaluate')}">查看更多</a>
         </div>
         <div class="visa_comment_item">
             <div class="visa_comment_user">
@@ -106,7 +152,7 @@
         </div>
         <div class="visa_address_title">
             <div>社区问答(3)</div>
-            <a href="#">查看更多</a>
+            <a href="{:url('index/visa_answers')}">查看更多</a>
         </div>
         <ul class="community_box">
             <li>
@@ -256,7 +302,7 @@
     </footer>
 
     <!-- 遮罩层 -->
-    <div class="mask_box ">
+    <div class="mask_box  pay_box">
         <div class="goods_info_box">
             <div class="goods_info">
                 <div class="goods_img"><img src="__STATIC__/index/img/goods.jpg" alt=""></div>
@@ -266,27 +312,143 @@
                 </div>
                 <div class="mask_close"><img src="__STATIC__/index/img/close.png" alt=""></div>
             </div>
-            <div class="visa_address_title">
+            <div class="visa_address_title address">
                 <div>天津出发▼</div>
             </div>
         </div>
 
         <div class="goods_date">
-            <div>出发日期</div>
+            <div class="goods_date_m">
+                <div>出发日期</div>
+            </div>
+            <div class="goods_date_month">
+                <span>一月</span>
+                <span>二月</span>
+            </div>
+            <ul class="goods_date_day">
+                <div>
+                    <span>日</span>
+                    <span>一</span>
+                    <span>二</span>
+                    <span>三</span>
+                    <span>四</span>
+                    <span>五</span>
+                    <span>六</span>
+                </div>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+            </ul>
+            <div class="goods_pays">
+                <div class="goods_pays_title">购买数量</div>
+                <div class="goods_pays_num">
+                    <span>成人</span>
+                    <ul class="btn-numbox">
+                        <li>
+                            <ul class="count">
+                                <li><span id="num-jian" class="num-jian">-</span></li>
+                                <li><input type="text" class="input-num" id="input-num" value="0" /></li>
+                                <li><span id="num-jia" class="num-jia">+</span></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="goods_num">
+                    <span>单价:￥4952</span>
+                    <span>库存:6件</span>
+                </div>
+            </div>
         </div>
-
 
         <div class="mask_btn">提交</div>
     </div>
 
+
+    <!-- 地区 -->
+    <div class="mask_box  address_box">
+        <div class="goods_address_box">
+            <div class="goods_info address_titles">
+                <div>出发地选择</div>
+                <div class="mask_close"><img src="__STATIC__/index/img/close.png" alt=""></div>
+            </div>
+            <div class="search_address">
+                <div><img src="__STATIC__/index/img/shousuo.png" alt=""></div>
+                <div><input type="text" placeholder="请输入搜索词"></div>
+            </div>
+        </div>
+        <ul class="address_hot">
+            <li class="check_address_hot">北京</li>
+            <li>北京</li>
+            <li>北京</li>
+            <li>北京</li>
+            <li>北京</li>
+            <li>北京</li>
+        </ul>
+    </div>
 </body>
 
 </html>
 <script>
+    // 购物
     $('.shoping').click(function() {
-        $(".mask_box").addClass('mask_box_toggle');
-    })
+            $(".pay_box").addClass('mask_box_toggle');
+        })
+        //地址
+    $('.address').click(function() {
+            $(".address_box").addClass('mask_box_toggle');
+        })
+        // 关闭
     $('.mask_close').click(function() {
-        $(".mask_box").removeClass('mask_box_toggle');
+        $(this).parents(".mask_box").removeClass('mask_box_toggle');
     })
+    $('.visa_share').click(function() {
+        window.location.href = "{:url( 'index/visa_share')}";
+    })
+
+    var num_jia = document.getElementById("num-jia");
+    var num_jian = document.getElementById("num-jian");
+    var input_num = document.getElementById("input-num");
+
+    num_jia.onclick = function() {
+
+        input_num.value = parseInt(input_num.value) + 1;
+    }
+
+    num_jian.onclick = function() {
+
+        if (input_num.value <= 0) {
+            input_num.value = 0;
+        } else {
+
+            input_num.value = parseInt(input_num.value) - 1;
+        }
+
+    }
+
+    //数字加减框
+    $("body").on("click", ".num-jian", function(m) {
+        var obj = $(this).closest("ul").find(".input-num");
+        if (obj.val() <= 0) {
+            obj.val(0);
+        } else {
+            obj.val(parseInt(obj.val()));
+        }
+        obj.change();
+    });
+    $("body").on("click", ".num-jia", function(m) {
+        var obj = $(this).closest("ul").find(".input-num");
+        console.log(parseInt(obj.val()))
+        obj.val(parseInt(obj.val()));
+        obj.change();
+    });
 </script>

@@ -1,0 +1,57 @@
+.share_title {
+    font-size: .3rem;
+    color: #000000;
+    padding: .2rem 0;
+}
+
+.share_box p {
+    font-size: .28rem;
+    color: #8c8d8f;
+}
+
+.share_price {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-top: .2rem;
+    font-size: .32rem;
+    color: #98592f;
+}
+
+.share_price div:nth-child(1) {
+    width: 1.2rem;
+    margin-right: .2rem;
+}
+
+.share_price span {
+    font-size: .26rem;
+}
+
+.share_box div:nth-child(4) {
+    width: 50%;
+    margin: 0.6rem auto;
+}
+
+.share_footer {
+    width: 100%;
+    height: 1.2rem;
+    background-color: #efefef;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+
+.share_footer dl {
+    width: 30%;
+    text-align: center;
+    padding: .2rem;
+    font-size: .22rem;
+    text-align: center;
+}
+
+.share_footer dl dt {
+    width: .6rem;
+    margin: 0 auto;
+}
