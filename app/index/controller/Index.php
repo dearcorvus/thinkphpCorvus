@@ -40,6 +40,25 @@ class Index extends BaseController
     {
         return view();
     }
+
+    //机票
+    public function ticket()
+    {
+        return view();
+    }
+
+    //时间
+    public function ticket_date()
+    {
+        return view();
+    }
+
+    //时间
+    public function ticket_price()
+    {
+        return view();
+    }
+
     public function hello($name = 'ThinkPHP6')
     {
         return 'hello,' . $name;

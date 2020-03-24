@@ -2,7 +2,7 @@
 namespace app\admin\controller;
 
 use app\BaseController;
-use think\Db;
+use think\facade\Db;
 
 class Commonality extends BaseController
 {
@@ -20,7 +20,7 @@ class Commonality extends BaseController
 
         $admin_id = session('ADMIN_ID');
         if (!empty($admin_id)) {//已经登录
-            return redirect(url("admin/Index/index"));
+            return redirect("admin/Index/index");
         } else {
             $site_admin_url_password = config("cmf_SITE_ADMIN_URL_PASSWORD");
             $upw                     = session("__CMF_UPW__");
@@ -55,7 +55,7 @@ class Commonality extends BaseController
             $this->error(lang('CAPTCHA_NOT_RIGHT'));
         }
 
-        $name = $this->request->param("username");
+        $name = $this->request->param("username"); 
         if (empty($name)) {
             $this->error(lang('USERNAME_OR_EMAIL_EMPTY'));
         }
@@ -72,15 +72,19 @@ class Commonality extends BaseController
         $result = Db::name('user')->where($where)->find();
 
         if (!empty($result) && $result['user_type'] == 1) {
+
             if (cmf_compare_password($pass, $result['user_pass'])) {
+
                 $groups = Db::name('RoleUser')
                     ->alias("a")
-                    ->join('__ROLE__ b', 'a.role_id =b.id')
+                    ->join('Role b', 'a.role_id =b.id')
                     ->where(["user_id" => $result["id"], "status" => 1])
                     ->value("role_id");
+                    
                 if ($result["id"] != 1 && (empty($groups) || empty($result['user_status']))) {
                     $this->error(lang('USE_DISABLED'));
                 }
+
                 //登入成功页面跳转
                 session('ADMIN_ID', $result["id"]);
                 session('name', $result["user_login"]);
@@ -93,7 +97,9 @@ class Commonality extends BaseController
                 Db::name('user')->update($result);
                 cookie("admin_username", $name, 3600 * 24 * 30);
                 session("__LOGIN_BY_CMF_ADMIN_PW__", null);
-                $this->success(lang('LOGIN_SUCCESS'), url("admin/Index/index"));
+
+                $this->success(lang('LOGIN_SUCCESS'), "admin/Index/index");
+                
             } else {
                 $this->error(lang('PASSWORD_NOT_RIGHT'));
             }

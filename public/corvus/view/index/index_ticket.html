@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- 公共文件 -->
+    <script type="text/javascript" src="__STATIC__/index/js/rem.js"></script>
+    <script type="text/javascript" src="__STATIC__/public/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="__STATIC__/index/js/index.js"></script>
+
+    <!-- 引入swiper -->
+
+    <link rel="stylesheet" href="__STATIC__/public/swiper/css/swiper.css">
+    <script type="text/javascript" src="__STATIC__/public/swiper/js/swiper.js"></script>
+
+    <!-- 公共文件 -->
+    <link rel="stylesheet" href="__STATIC__/index/css/style.css">
+    <link rel="stylesheet" href="__STATIC__/index/css/ticket.css">
+</head>
+
+<body>
+    <!-- 头部标题 -->
+    <div class="ticket_top">
+        团票散卖(往返)
+    </div>
+    <!-- 机票 -->
+    <div class="ticket_box">
+        <div class="ticket_box_item">
+            <div>去程</div>
+            <ul class="ticket_box_info">
+                <li>
+                    <span>东京</span>
+                    <img src="__STATIC__/index/img/search.jpg" alt="">
+                    <span>北京</span>
+                </li>
+                <li>
+                    <span>03月21日<span>周六</span></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="ticket_box">
+        <div class="ticket_box_item">
+            <div>回程</div>
+            <ul class="ticket_box_info">
+                <li>
+                    <span>东京</span>
+                    <img src="__STATIC__/index/img/search.jpg" alt="">
+                    <span>北京</span>
+                </li>
+                <li>
+                    <span>03月21日<span>周六</span></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="ticket_btn">搜索机票</div>
+
+    <div class="ticket_banner">
+        <img src="__STATIC__/index/img/bannerC.jpg" alt="">
+    </div>
+
+    <div class="ticket_hot">
+        <div class="ticket_title"><img src="__STATIC__/index/img/hot.jpg" alt=""><span>超值低价</span></div>
+
+        <ul class="ticket_list">
+            <li>
+                <div><span>北京</span>-><span>西安</span></div>
+                <p><span>￥1456</span>&nbsp;&nbsp;&nbsp;0.7折</p>
+            </li>
+            <li>
+                <div><span>北京</span>-><span>西安</span></div>
+                <p><span>￥1456</span>&nbsp;&nbsp;&nbsp;0.7折</p>
+            </li>
+            <li>
+                <div><span>北京</span>-><span>西安</span></div>
+                <p><span>￥1456</span>&nbsp;&nbsp;&nbsp;0.7折</p>
+            </li>
+            <li>
+                <div><span>北京</span>-><span>西安</span></div>
+                <p><span>￥1456</span>&nbsp;&nbsp;&nbsp;0.7折</p>
+            </li>
+            <li>
+                <div><span>北京</span>-><span>西安</span></div>
+                <p><span>￥1456</span>&nbsp;&nbsp;&nbsp;0.7折</p>
+            </li>
+            <li>
+                <div><span>北京</span>-><span>西安</span></div>
+                <p><span>￥1456</span>&nbsp;&nbsp;&nbsp;0.7折</p>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>
+<script>
+    $('.ticket_box_info').click(function() {
+        window.location.href = "{:url('index/index/ticket_date')}"
+    })
+
+    $('.ticket_list').click(function() {
+        window.location.href = "{:url('index/index/ticket_price')}"
+    })
+</script>

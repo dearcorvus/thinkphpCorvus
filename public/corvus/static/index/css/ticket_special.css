@@ -1,0 +1,124 @@
+.ticket_special {
+    width: 100%;
+    height: 4rem;
+    background-image: url(../img/visa.jpg);
+    background-size: 100% 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.ticket_back {
+    background-color: rgba(0, 0, 0, .6);
+    border-radius: 50%;
+    padding: .05rem;
+    box-sizing: border-box;
+}
+
+.ticket_special_title {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem .2rem;
+    box-sizing: border-box;
+    font-size: .4rem;
+    color: #ffffff;
+}
+
+.ticket_special_title div {
+    width: .4rem;
+    height: .4rem;
+}
+
+.ticket_address {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #ffffff;
+    width: 100%;
+    border-radius: 80% 80% 0 0;
+}
+
+.ticket_address_title {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    font-size: .3rem;
+    color: #000000;
+    padding: .5rem 0;
+    box-sizing: border-box;
+}
+
+.ticket_address_title img {
+    width: .4rem;
+    height: .4rem;
+}
+
+.ticket_list {
+    width: 100%;
+    padding: .2rem;
+    background-color: #dddddd;
+    box-sizing: border-box;
+}
+
+.ticket_list_item {
+    width: 100%;
+    height: 3rem;
+    background-color: #ffffff;
+    margin-bottom: .2rem;
+    border-radius: .2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ticket_day {
+    width: .4rem;
+    height: .4rem;
+    font-size: .3rem;
+    color: #000000;
+    line-height: .4rem;
+    text-align: center;
+    background-color: #f2f2f2;
+    border-radius: 50%;
+    margin: 0 .5rem;
+}
+
+.ticket_item_info {
+    width: 80%;
+}
+
+.ticket_item_info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ticket_item_info .ticket_item_time {
+    font-size: .3rem;
+    line-height: .5rem;
+}
+
+.ticket_item_info .ticket_item_price {
+    font-size: .32rem;
+    color: #de652c;
+    width: 1.5rem;
+    text-align: center;
+}
+
+.ticket_item_info .ticket_item_price p {
+    font-size: .22rem;
+    color: #de652c;
+}
+
+.ticket_item_time img {
+    width: .3rem;
+    height: .3rem;
+    margin-top: .1rem;
+    border-radius: 50%;
+    margin-right: .1rem;
+}
+
+.ticket_item_time div:nth-child(2n) {
+    color: #aaaaaa;
+}

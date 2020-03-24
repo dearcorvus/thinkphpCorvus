@@ -10,7 +10,11 @@
 // +----------------------------------------------------------------------
 
 // [ 应用入口文件 ]
+// 调试模式开关
+
 namespace think;
+
+define("APP_DEBUG", true);
 
 require __DIR__ . '/../vendor/autoload.php';
 

@@ -31,6 +31,7 @@ class Index extends AdminBaseController
 
         if (empty($menus)) {
             $menus = $adminMenuModel->menuTree();
+
             cache('admin_menus_' . cmf_get_current_admin_id(), $menus, null, 'admin_menus');
         }
 
@@ -48,9 +49,6 @@ class Index extends AdminBaseController
 
         View::assign("menus_js_var",json_encode($menusTmp));
         
-
-        var_dump(5555);
-        die();
 
         return View::fetch();
     }

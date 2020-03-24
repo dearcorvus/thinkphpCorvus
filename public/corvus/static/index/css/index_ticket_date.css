@@ -1,0 +1,91 @@
+/********************- 手机端日历 样式设置 -********************/
+
+.MobCalendar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999999;
+    font-family: "微软雅黑";
+    font-size: 14px;
+    background: #f5f5f5;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.CalendarTit {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999999;
+    width: 100%;
+    height: 70px;
+}
+
+.Tit {
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #000000;
+    font-size: .3rem;
+    background: #f5f5f5;
+}
+
+.Week {
+    background: #ddd;
+}
+
+.TableWeek {
+    width: 100%;
+    height: 30px;
+    text-align: center;
+}
+
+.CalendarCon {
+    margin-top: 70px;
+}
+
+.TableDate {
+    width: 100%;
+    text-align: center;
+}
+
+.TableDate td {
+    height: 40px;
+    text-align: center;
+}
+
+.TdYear {
+    height: 40px;
+    font-size: 16px;
+    color: #06f;
+}
+
+.ClickTdDay {
+    background: #fff;
+    color: #000;
+}
+
+.TdDay {
+    background: #fff;
+    color: #ddd;
+}
+
+.TdNowDay {
+    background: rgba(0, 153, 255, 0.5);
+    color: #06f;
+}
+
+.TdNullDay {
+    background: #fff;
+}
+
+.TableDate tr {
+    border-bottom: 1px solid #ddd;
+}
+
+.TableDate td {
+    border: none;
+}

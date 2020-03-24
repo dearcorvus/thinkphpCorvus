@@ -1,9 +1,9 @@
 <?php
 namespace app\admin\controller;
 
-use think\Db;
+use think\facade\Db;
 use app\BaseController;
-
+use think\facade\View;
 
 class AdminBaseController extends BaseController
 {
@@ -19,7 +19,7 @@ class AdminBaseController extends BaseController
             if (!$this->checkAccess($session_admin_id)) {
                 $this->error("您没有访问权限！");
             }
-            $this->assign("admin", $user);
+            View::assign('admin', $user);
         } else {
             if ($this->request->isPost()) {
                 $this->error("您还没有登录！", url("admin/commonality/login"));
